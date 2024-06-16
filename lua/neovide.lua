@@ -8,3 +8,8 @@ vim.g.neovide_padding_top = 4
 vim.g.neovide_padding_bottom = 4
 vim.g.neovide_padding_left = 4
 vim.g.neovide_padding_right = 4
+
+-- Work around Neovide's default working directory being / on macOS
+if vim.fn.getcwd() == "/" then
+	vim.fn.chdir(vim.fn.getenv("HOME"))
+end
