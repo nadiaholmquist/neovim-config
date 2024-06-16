@@ -1,6 +1,10 @@
 require("plugins")
 require("setup-lspconfig")
 
+if vim.g.neovide then
+	require("neovide")
+end
+
 vim.g.mapleader = " "
 
 vim.opt.tabstop = 4
