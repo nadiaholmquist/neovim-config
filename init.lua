@@ -16,3 +16,6 @@ vim.opt.scrolloff = 5
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+-- Easily escape terminal with Ctrl+Space
+vim.keymap.set("t", "<C- >", "<C-\\><C-n>")
