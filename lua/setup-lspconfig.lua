@@ -3,7 +3,20 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- Setup language servers.
 local lspconfig = require('lspconfig')
 
-lspconfig.clangd.setup { capabilities = capabilities }
+lspconfig.clangd.setup {
+	capabilities = capabilities,
+	on_attach = function()
+		require("clangd_extensions.inlay_hints").setup_autocmd()
+		require("clangd_extensions.inlay_hints").set_inlay_hints()
+	end
+}
+
+require("clangd_extensions").setup {
+	inlay_hints = {
+		inline = false
+	}
+}
+
 lspconfig.sourcekit.setup {
 	capabilities = capabilities,
 	filetypes = {'swift'}
@@ -91,4 +104,16 @@ cmp.setup {
 		{ name = 'nvim_lsp' },
 		{ name = 'luasnip' },
 	},
+	sorting = {
+		comparators = {
+			cmp.config.compare.offset,
+			cmp.config.compare.exact,
+			cmp.config.compare.recently_used,
+			require("clangd_extensions.cmp_scores"),
+			cmp.config.compare.kind,
+			cmp.config.compare.sort_text,
+			cmp.config.compare.length,
+			cmp.config.compare.order,
+		}
+	}
 }
