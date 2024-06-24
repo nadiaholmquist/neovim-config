@@ -18,6 +18,13 @@ require("lazy").setup({
 		vim.cmd [[ colorscheme gruvbox8_hard ]]
 	end },
 
+	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", config = function()
+		require("nvim-treesitter.configs").setup {
+			ensure_installed = { "c", "cpp", "lua", "swift" },
+			highlight = { enable = true, }
+		}
+	end },
+
 	-- Language Server support
 	{ "neovim/nvim-lspconfig", dependencies = {
 		"p00f/clangd_extensions.nvim",
