@@ -66,5 +66,8 @@ require("lazy").setup({
 
 	{ "airblade/vim-gitgutter" },
 	{ "notjedi/nvim-rooter.lua", lazy = false, config = true },
+
+	-- For neovim-qt
+	"equalsraf/neovim-gui-shim"
 })
 
