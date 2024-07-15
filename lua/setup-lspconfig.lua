@@ -11,6 +11,8 @@ lspconfig.clangd.setup {
 	end
 }
 
+lspconfig.nixd.setup { capabilities = capabilities }
+
 require("clangd_extensions").setup {
 	inlay_hints = {
 		inline = false

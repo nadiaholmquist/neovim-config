@@ -1,4 +1,9 @@
-vim.o.guifont = "Fira Code:h15"
+-- macOS and Linux treat font sizes differently.
+if vim.loop.os_uname().sysname == "Darwin" then
+	vim.o.guifont = "Fira Code:h15"
+else
+	vim.o.guifont = "Fira Code:h11"
+end
 
 vim.g.neovide_show_border = true
 vim.g.neovide_hide_mouse_when_typing = true
