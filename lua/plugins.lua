@@ -56,7 +56,16 @@ require("lazy").setup({
 	}},
 
 	-- File browser
-	{ "ms-jpq/chadtree", lazy = false },
+	--{ "ms-jpq/chadtree", lazy = false },
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+		}
+	},
 
 	{ "kylechui/nvim-surround", event = "VeryLazy", config = true },
 	{ "windwp/nvim-autopairs", event = "InsertEnter", config = true },
