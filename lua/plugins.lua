@@ -13,6 +13,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	-- Editing
+	{ "kylechui/nvim-surround", event = "VeryLazy", config = true },
+	{ "windwp/nvim-autopairs", event = "InsertEnter", config = true },
+
+	-- Auto tab/spaces settings depending on file
+	{ "tpope/vim-sleuth", lazy = false },
+
 	-- Colors
 	{ "lifepillar/vim-gruvbox8", lazy = false, config = function()
 		vim.cmd [[ colorscheme gruvbox8_hard ]]
@@ -67,16 +74,15 @@ require("lazy").setup({
 		}
 	},
 
-	{ "kylechui/nvim-surround", event = "VeryLazy", config = true },
-	{ "windwp/nvim-autopairs", event = "InsertEnter", config = true },
-
-	-- Auto tab/spaces settings depending on file
-	{ "tpope/vim-sleuth", lazy = false },
-
 	{ "airblade/vim-gitgutter" },
 	{ "notjedi/nvim-rooter.lua", lazy = false, config = true },
 
 	-- For neovim-qt
-	"equalsraf/neovim-gui-shim"
+	"equalsraf/neovim-gui-shim",
+
+	{ 'akinsho/toggleterm.nvim', version = "*", config = true, init = function()
+        vim.keymap.set('n', '<leader>t', ':ToggleTerm<CR>');
+      end
+    },
 })
 
