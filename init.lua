@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 require "plugins"
 require "setup-lspconfig"
 require "filetypes"
@@ -6,8 +8,6 @@ require "mappings"
 if vim.g.neovide then
 	require "neovide"
 end
-
-vim.g.mapleader = " "
 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
