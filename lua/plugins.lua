@@ -81,8 +81,20 @@ require("lazy").setup({
 	"equalsraf/neovim-gui-shim",
 
 	{ 'akinsho/toggleterm.nvim', version = "*", config = true, init = function()
-        vim.keymap.set('n', '<leader>t', ':ToggleTerm<CR>');
-      end
-    },
-})
+		vim.keymap.set('n', '<leader>t', ':ToggleTerm<CR>');
+	end },
 
+	{
+		'nvim-telescope/telescope.nvim',
+		branch = '0.1.x',
+		dependencies = {
+			'nvim-lua/plenary.nvim',
+			'BurntSushi/ripgrep'
+		},
+		config = true,
+		init = function()
+			require('telescope').load_extension('ui-select')
+		end
+	},
+	'nvim-telescope/telescope-ui-select.nvim'
+})
