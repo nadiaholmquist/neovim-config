@@ -5,10 +5,6 @@ local lspconfig = require('lspconfig')
 
 lspconfig.clangd.setup {
 	capabilities = capabilities,
-	on_attach = function()
-		require("clangd_extensions.inlay_hints").setup_autocmd()
-		require("clangd_extensions.inlay_hints").set_inlay_hints()
-	end
 }
 
 lspconfig.nixd.setup {
